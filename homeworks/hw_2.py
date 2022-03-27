@@ -23,14 +23,12 @@ print(list_numbers.index(min(list_numbers)))
 """
 print(list_numbers[::-1])
 
-
 """
 2. Сгенерировать массив(list()). Из диапазона чисел от 0 до 100 записать в результирующий массив только четные числа.
 """
 
 list_result = list(range(0, 101, 2))
 print(list_result)
-
 
 """
 3. Найти общие ключи в двух словарях:
