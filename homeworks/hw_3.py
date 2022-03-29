@@ -18,9 +18,7 @@ def change_into_vowels(random_str):
 print(change_into_vowels("Gjjfnkiomsc kfgg nknkpo"))
 
 
-
-'''
-#Дан массив из словарей
+#2. массив из словарей
 
 data = [
   {'name': 'Viktor', 'city': 'Kyiv', 'age': 30 },
@@ -30,12 +28,37 @@ data = [
   {'name': 'Artem', 'city': 'Dnipro', 'age': 50},
   {'name': 'Dmitriy', 'city': 'Lviv', 'age': 21}]
 
-2.1) отсортировать массив из словарей по значению ключа ‘age'
-
-2.2) сгруппировать данные по значению ключа 'city'
+#2.1. отсортировать массив из словарей по значению ключа ‘age'
 
 
+def sort_by_age(some_arg):
+    sorted_data = sorted(some_arg, key=lambda x: x['age'])
+    return sorted_data
 
+
+print(sort_by_age(data))
+
+"""
+2.2. сгруппировать данные по значению ключа 'city'
+"""
+
+
+def group_by_city(some_arg):
+    result_data = {}
+    for record in some_arg:
+        city = record.pop('city')
+        if city in result_data:
+            result_data[city].append(record)
+        else:
+            result_data[city] = [record]
+    return result_data
+
+
+print(group_by_city(data))
+
+
+
+"""
 3) У вас есть последовательность строк. Необходимо определить наиболее часто встречающуюся строку в последовательности.
 
 Например:
@@ -51,4 +74,4 @@ def most_frequent(list_var):
 
 
 most_frequent(['a', 'a', 'bi', 'bi', 'bi']) == 'bi'
-'''
+"""
