@@ -1,5 +1,5 @@
-#Please wrap all logic in functions:
 """
+Please wrap all logic in functions:
 1. Заменить в произвольной строке согласные буквы на гласные.
 """
 import random
@@ -76,4 +76,4 @@ def most_frequent(list_var) -> str:
     return frequent_str
 
 
-print(most_frequent(['a', 'a', 'bi', 'bi', 'bi', 'di', 'di', 'di']))
+print(most_frequent(['a', 'a', 'bi', 'bi', 'bi', 'di', 'di']))
