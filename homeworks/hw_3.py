@@ -28,7 +28,9 @@ data = [
   {'name': 'Artem', 'city': 'Dnipro', 'age': 50},
   {'name': 'Dmitriy', 'city': 'Lviv', 'age': 21}]
 
-#2.1. отсортировать массив из словарей по значению ключа ‘age'
+"""
+2.1. отсортировать массив из словарей по значению ключа ‘age'
+"""
 
 
 def sort_by_age(some_arg):
@@ -45,33 +47,33 @@ print(sort_by_age(data))
 
 def group_by_city(some_arg):
     result_data = {}
-    for record in some_arg:
-        city = record.pop('city')
+    for item in some_arg:
+        city = item.pop('city')
         if city in result_data:
-            result_data[city].append(record)
+            result_data[city].append(item)
         else:
-            result_data[city] = [record]
+            result_data[city] = [item]
     return result_data
 
 
 print(group_by_city(data))
 
 
-
 """
-3) У вас есть последовательность строк. Необходимо определить наиболее часто встречающуюся строку в последовательности.
-
-Например:
-
-
-
-def most_frequent(list_var):
-
-  #your code is here
-
-  return
-
-
-
-most_frequent(['a', 'a', 'bi', 'bi', 'bi']) == 'bi'
+3. У вас есть последовательность строк. Необходимо определить наиболее часто встречающуюся строку в последовательности.
 """
+
+
+def most_frequent(list_var) -> str:
+    max_value = 0
+    frequent_str = None
+    for item in list_var:
+        item_count = list_var.count(item)
+        if item_count >= max_value:
+            max_value = item_count
+            frequent_str = item
+
+    return frequent_str
+
+
+print(most_frequent(['a', 'a', 'bi', 'bi', 'bi', 'di', 'di', 'di']))
