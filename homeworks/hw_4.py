@@ -9,9 +9,9 @@ def check_remainder_of_division(func):
     def wrapper(*args):
         result = 100 % func(*args)
         if result == 0:
-            print('We are OK!')
+            print("We are OK!")
         else:
-            print(f'Bad news guys, we got {result}')
+            print(f"Bad news guys, we got {result}")
 
     return wrapper
 
@@ -71,7 +71,7 @@ def decorator_cached(func):
         else:
             wrapper.fun_call += 1
             cache[args] = func(*args)
-            print(f'Function executed with counter = {wrapper.fun_call}, function result = {cache[args]}')
+            print(f"Function executed with counter = {wrapper.fun_call}, function result = {cache[args]}")
             return cache[args]
 
     wrapper.cache_call = 0
