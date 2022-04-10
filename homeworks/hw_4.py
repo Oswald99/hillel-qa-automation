@@ -23,3 +23,28 @@ def func_division(numb):
 
 func_division(101)
 func_division(100)
+
+
+"""
+Написать декоратор, который будет выполнять предпроверку типа аргумента, который передается в вашу функцию.
+Если это int, тогда выполнить функцию и вывести результат, если это str(),
+тогда зарейзить ошибку ValueError (raise ValueError(“string type is not supported”))
+"""
+
+
+def decorator_check_value_type(func):
+    def wrapper(*args):
+        try:
+            print(int(func(*args)))
+        except ValueError:
+            raise ValueError("String type is not supported")
+    return wrapper
+
+
+@decorator_check_value_type
+def some_value(b):
+    return b
+
+
+some_value('My string')
+# some_value(46)
