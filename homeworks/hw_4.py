@@ -46,5 +46,49 @@ def some_value(b):
     return b
 
 
-some_value('My string')
+#some_value('My string')
 # some_value(46)
+
+
+"""
+Написать декоратор, который будет кешировать значения аргументов и результаты работы вашей функции и записывать
+его в переменную cache. Если аргумента нет в переменной cache и функция выполняется, вывести сообщение
+«Function executed with counter = {}, function result = {}» и количество раз сколько эта функция выполнялась.
+Если значение берется из переменной cache, вывести сообщение «Used cache with counter = {}» и
+количество раз обращений в cache.
+"""
+
+
+def decorator_cached(func):
+    cache = {}
+
+    @functools.wraps(func)
+    def wrapper(*args):
+        if args in cache:
+            wrapper.cache_call += 1
+            print(f'Used cache with counter = {wrapper.cache_call}')
+            return cache[args]
+        else:
+            wrapper.fun_call += 1
+            cache[args] = func(*args)
+            print(f'Function executed with counter = {wrapper.fun_call}, function result = {cache[args]}')
+            return cache[args]
+
+    wrapper.cache_call = 0
+    wrapper.fun_call = 0
+    return wrapper
+
+
+@decorator_cached
+def multiply_numbers(x, y):
+    result = x * y
+    return result
+
+
+multiply_numbers(1, 2)
+multiply_numbers(1, 5)
+multiply_numbers(2, 4)
+multiply_numbers(3, 2)
+multiply_numbers(3, 2)
+multiply_numbers(10, 11)
+multiply_numbers(1, 2)
